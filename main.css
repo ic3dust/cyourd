@@ -224,6 +224,7 @@
     -webkit-background-clip: text;
     color: transparent;
     overflow: hidden;
+    z-index:1;
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.35);
 }
 .line1{
@@ -254,38 +255,35 @@
     position: absolute;
 }
 .btn1Cont{
-    top: 50%;
-    right: 14%;
+    top: 50vh;
+    right: 14vw;
     opacity: 0;
     animation: slide-left 2s 1s forwards;
 }
 .btn2Cont{
-    top: 75%;
-    right: 10.5%;
+    top: 75vh;
+    right: 10.5vw;
     opacity: 0;
     animation: slide-left 2s 1.5s forwards;
 }
 .btn3Cont{
-    top: 100%;
-    right: 14%;
+    top: 100vh;
+    right: 14vw;
     opacity:0;
     animation: slide-left 2s 2s forwards;
 }
 .button{
     background:linear-gradient(#00bfff, #0a59cf); 
     border-radius:15px;
-    width: 21rem;
-    height: 3rem;
+    width: 30vw;
+    height: 8vh;
     display: inline-block;
     border:none;
     box-shadow: 0px 10px 0px -1px darkblue;
     font-size: 1.5rem;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
-.button:hover{
-    background:#00bfff;
-    transform: scale(1.1);
-}
+
 .button span {
     font-family: 'Source Sans Pro', sans-serif;
     font-style: italic;
@@ -300,28 +298,23 @@
     transform: scaleX(1.25) scaleY(1);
     transform-origin: center;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
-.button span:hover{
+.button:hover {
+    background: #00bfff;
+    transform: scale(1.1);
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    color: #ff2d2d;
-    
 }
-.imgcnt {
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    bottom: 55%;
-    left: 55%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.button:hover span{
+    background: none;
+    color: #e63030;
 }
-.hacker_svg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.hc {
+    width: 75%;
+    height: 75%;
+    top:0;
+    right: -5rem;
+    position: fixed;
     mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
     -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
     animation: fade-in 5s;
@@ -331,7 +324,7 @@
     height:100%;
     position: relative;
     left:-65%;
-    bottom:-75px;
+    bottom:-20vh;
     transition: transform 2s ease;
     animation: rightFloatIn 2s ease;
 }
@@ -346,16 +339,17 @@
 }
 .refl1, .refl2, .refl1_2,
 .refl2_2, .refb {
-    font-size:2.25rem;
+    font-size:2.25vw;
     font-style: italic;
     font-family: 'Source Sans Pro', sans-serif;
     background: linear-gradient(315deg, rgba(2, 0, 36, 1) 0%, rgba(0, 0, 0, 1) 100%);
     background-clip:text;
     -webkit-background-clip: text;
     position: absolute;
-    left:34%;
-    top:-20px;
+    left:35%;
+    top:-1.6vh;
     text-align: center;
+    transform: translate(-50% -50%);
 }
 
 @keyframes refl1{
@@ -523,12 +517,12 @@
     }
 }
 .tab .book{
-    width: 100px;
-    height:125px;
+    width: 5%;
+    height:8vw;
     transform: translate(-50%, -50%);
     position: absolute;
     top:50%;
-    right: 45%;
+    right: 47%;
     transform: scaleX(0);
 
     --_g: 10% /45% 45% no-repeat linear-gradient(#000 0 0);
@@ -583,7 +577,7 @@
 
 .tabdesc {
     display: block;
-    font-size: 1rem;
+    font-size: 1vw;
     font-weight: bolder;
     font-family: 'Source Sans Pro', sans-serif;
     text-align: center;
@@ -668,7 +662,7 @@
     justify-items: center;
     width:100%;
     text-align: center;
-    position: absolute;
-    bottom: -50%;
+    position: relative;
+    bottom:-35vh;
     animation: runin 2s ease;
 }

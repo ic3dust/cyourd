@@ -1,0 +1,30 @@
+@keyframes CCappear{
+    0%{
+
+    }
+    100%{
+        
+    }
+}
+@-webkit-keyframes CCappear{
+    0%{
+
+    }
+    100%{
+
+    }
+}
+.CCeffect{
+    animation: CCappear 1s ease forwards;
+}
+.ccBody {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 800;
+    background: linear-gradient(-45deg, rgba(2, 0, 36, 1) 100%, rgba(7, 7, 97, 1) 10%);
+    background-size: 200% 200%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1;
+    margin:0;
+}
+

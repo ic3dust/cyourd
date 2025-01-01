@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CeasarCipher</title>
+    <link rel="stylesheet" href="./CeasarCipher.css">
+    <style>
+        canvas {
+            position: absolute;
+            display: block;
+            top: 0;
+        }
+
+        #squares1 {
+            left: 0;
+        }
+
+        #squares2 {
+            left: 4vw;
+        }
+
+        #squares3 {
+            left: 8vw;
+        }
+    </style>
+</head>
+
+<body class="ccBody">
+    <canvas id="squares1"></canvas>
+    <canvas id="squares2"></canvas>
+    <canvas id="squares3"></canvas>
+    <script>
+        function createColumnAnimation(canvasId, fadeFactorMultiplier) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+
+            const squareSize = 25; // Size of each square
+            const gap = 5; // Gap between squares
+            const canvasWidth = squareSize;
+            const canvasHeight = window.innerHeight;
+
+            canvas.width = canvasWidth;
+            canvas.height = canvasHeight;
+
+            const rows = Math.floor(canvasHeight / (squareSize + gap));
+            const speed = 2; // Speed of the highlight movement
+
+            let offset = 0; // Offset to control the flowing effect
+
+            function drawColumn() {
+                ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+                for (let i = 0; i < rows; i++) {
+                    const y = i * (squareSize + gap);
+
+                    // Calculate the intensity based on the offset and row position
+                    const intensity = Math.max(
+                        0,
+                        1 - Math.abs((y - offset) / (squareSize + gap))
+                    );
+
+                    const blueValue = Math.floor(255 * intensity);
+
+                    // Adjust the fade factor based on the fadeFactorMultiplier
+                    const fadeFactor = 1 - (y / canvasHeight) * fadeFactorMultiplier;
+                    const alpha = Math.max(0, Math.min(1, fadeFactor)); // Clamp alpha to [0, 1]
+
+                    // Set the fill style for each square
+                    ctx.fillStyle = `rgba(36, 36, ${95 + blueValue}, ${alpha})`;
+                    ctx.fillRect(0, y, squareSize, squareSize);
+                }
+            }
+
+            function animate() {
+                offset += speed;
+
+                // Reset the offset when it goes past the last square
+                if (offset > canvasHeight + squareSize) {
+                    offset = 0;
+                }
+
+                drawColumn();
+                requestAnimationFrame(animate);
+            }
+
+            drawColumn();
+            animate();
+        }
+
+        // Create three animations with different fade factors
+        createColumnAnimation('squares1', 1);     // First column
+        createColumnAnimation('squares2', 1.5);  // Second column fades 50% sooner
+        createColumnAnimation('squares3', 2);    // Third column fades 50% sooner than the second
+    </script>
+</body>
+
+</html>
